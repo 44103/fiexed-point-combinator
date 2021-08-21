@@ -1,5 +1,6 @@
 y = fn f ->
-  (fn x -> fn m -> f.(x.(x)).(m) end end).(fn x -> fn m -> f.(x.(x)).(m) end end)
+  fn x -> fn m -> f.(x.(x)).(m) end end
+  |> (fn x -> fn m -> f.(x.(x)).(m) end end).()
 end
 
 fact = fn f ->
