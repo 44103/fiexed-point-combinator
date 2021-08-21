@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  app:
+    image: elixir:latest
+    tty: true
+    volumes:
+      - ./app:/work
