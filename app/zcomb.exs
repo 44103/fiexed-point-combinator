@@ -1,4 +1,11 @@
-y = fn f ->
+# Infinite Recursion!
+# Y-Combinator
+# y = fn f ->
+#   fn x -> f.(x.(x)) end |> (fn x -> f.(x.(x)) end).()
+# end
+
+# Z-Combinator
+z = fn f ->
   fn x -> fn m -> f.(x.(x)).(m) end end
   |> (fn x -> fn m -> f.(x.(x)).(m) end end).()
 end
@@ -25,5 +32,5 @@ gcd = fn f ->
   end
 end
 
-y.(fact).(10) |> IO.puts()
-y.(gcd).({182, 52}) |> IO.puts()
+z.(fact).(10) |> IO.puts()
+z.(gcd).({182, 52}) |> IO.puts()
