@@ -13,4 +13,17 @@ fact = fn f ->
   end
 end
 
+gcd = fn f ->
+  fn n ->
+    {a, b} = n
+
+    if b == 0 do
+      a |> abs()
+    else
+      f.({b, rem(a, b)})
+    end
+  end
+end
+
 y.(fact).(10) |> IO.puts()
+y.(gcd).({182, 52}) |> IO.puts()
